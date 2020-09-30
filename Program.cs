@@ -1215,7 +1215,7 @@ public class Triangle
     {
         List<string> lines = new List<string>();
         int spacecount = 2;
-        string line = "";
+        string line = "";//replace "" with string.empty
         for (int i = 0; i < spacecount; i++)
         {
             line += " ";
@@ -1227,7 +1227,7 @@ public class Triangle
 
 
         spacecount = 4;
-        line = "";
+        line = "";//replace "" with string.empty
         for (int i = 0; i < spacecount; i++)
         {
             line += " ";
@@ -1238,7 +1238,7 @@ public class Triangle
         spacecount = 6;
         foreach (Coordinate objCoordinate in Vertices)
         {
-            line = "";
+            line = "";//replace "" with string.empty
             for (int i = 0; i < spacecount; i++)
             {
                 line += " ";
@@ -1284,7 +1284,7 @@ public class Triangle
         /// </summary>
         /// <param name="abs">condition that returns true if the normal is absolute 1 be it -1 or 1 in the X coordinate</param>
         /// <returns>the other condition returns true for only +1 value</returns>
-        public bool IsX(bool abs)
+        public bool IsX(bool abs)//renamme abs with isAbs
     {
         if (abs)
         {
