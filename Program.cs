@@ -139,7 +139,9 @@ namespace ITProjectShipCompartmentation
                 {
                     //if the condition is satisfied, add corresponding triangles to the listRemove
                     if (objTriangle.IsZ(false) && objTriangle.Vertices[0].Z == max)
+                    {
                         listRemove.Add(objTriangle);
+                    }
                 }
                 //for all triangles in the new list listRemove, delete this triangles from the fileTriangleList
                 foreach (Triangle objTriangle in listRemove)
@@ -245,51 +247,87 @@ namespace ITProjectShipCompartmentation
                     if (new Triangle(t1.Vertices[0], t2.Vertices[0], t1.Vertices[1]).OrientX() > 0)
                     {
                         if (new Triangle(t1.Vertices[0], t2.Vertices[1], t1.Vertices[1]).OrientX() < 0)
+                        {
                             return true;
+                        }
                         else
+                        {
                             return false;
+                        }
                     }
                     else
                     {
                         if (new Triangle(t1.Vertices[0], t2.Vertices[0], t1.Vertices[2]).OrientX() > 0)
                             if (new Triangle(t1.Vertices[1], t1.Vertices[2], t2.Vertices[0]).OrientX() > 0)
+                            {
                                 return true;
+                            }
                             else
+                            {
                                 return false;
+                            }
                         else
+                        {
                             return false;
+                        }
                     }
                 else
                 {
                     if (new Triangle(t1.Vertices[0], t2.Vertices[1], t1.Vertices[1]).OrientX() < 0)
                         if (new Triangle(t2.Vertices[2], t2.Vertices[1], t1.Vertices[2]).OrientX() < 0)
                             if (new Triangle(t1.Vertices[1], t1.Vertices[2], t2.Vertices[1]).OrientX() > 0)
+                            {
                                 return true;
+                            }
                             else
+                            {
                                 return false;
+                            }
                         else
+                        {
                             return false;
+                        }
                     else
+                    {
                         return false;
+                    }
                 }
             else
             {
                 if (new Triangle(t2.Vertices[2], t2.Vertices[0], t1.Vertices[2]).OrientX() > 0)
                     if (new Triangle(t1.Vertices[1], t1.Vertices[2], t2.Vertices[2]).OrientX() > 0)
+                    {
                         if (new Triangle(t1.Vertices[0], t2.Vertices[0], t1.Vertices[2]).OrientX() > 0)
+                        {
                             return true;
+                        }
                         else
+                        {
                             return false;
+                        }
+                    }
                     else
+                    {
                         if (new Triangle(t1.Vertices[1], t1.Vertices[2], t2.Vertices[1]).OrientX() > 0)
-                        if (new Triangle(t2.Vertices[2], t1.Vertices[2], t2.Vertices[1]).OrientX() > 0)
-                            return true;
-                        else
-                            return false;
+                        {
+                            if (new Triangle(t2.Vertices[2], t1.Vertices[2], t2.Vertices[1]).OrientX() > 0)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                    }
                     else
+                    {
                         return false;
+                    }
                 else
+                {
                     return false;
+                }
             }
 
         }
@@ -314,21 +352,31 @@ namespace ITProjectShipCompartmentation
                 if (new Triangle(t1.Vertices[0], t2.Vertices[0], t1.Vertices[1]).OrientX() > 0)
                 {
                     if (new Triangle(t1.Vertices[0], t1.Vertices[1], t2.Vertices[2]).OrientX() > 0)
+                    {
                         return true;
+                    }
                     else
+                    {
                         return false;
+                    }
                 }
                 else
                 {
                     if (new Triangle(t1.Vertices[1], t1.Vertices[2], t2.Vertices[0]).OrientX() > 0)
                     {
                         if (new Triangle(t1.Vertices[2], t1.Vertices[0], t2.Vertices[0]).OrientX() > 0)
+                        {
                             return true;
+                        }
                         else
+                        {
                             return false;
+                        }
                     }
                     else
+                    {
                         return false;
+                    }
                 }
             }
             else
@@ -338,20 +386,30 @@ namespace ITProjectShipCompartmentation
                     if (new Triangle(t1.Vertices[0], t2.Vertices[0], t1.Vertices[2]).OrientX() > 0)
                     {
                         if (new Triangle(t1.Vertices[0], t1.Vertices[2], t2.Vertices[2]).OrientX() > 0)
+                        {
                             return true;
+                        }
                         else
                         {
                             if (new Triangle(t1.Vertices[1], t1.Vertices[2], t2.Vertices[2]).OrientX() > 0)
+                            {
                                 return true;
+                            }
                             else
+                            {
                                 return false;
+                            }
                         }
                     }
                     else
+                    {
                         return false;
+                    }
                 }
                 else
+                {
                     return false;
+                }
             }
         }
 
@@ -536,12 +594,18 @@ namespace ITProjectShipCompartmentation
                     if (new Triangle(t1.Vertices[1], t1.Vertices[2], t2.Vertices[0]).OrientY() > 0)
                     {
                         if (new Triangle(t1.Vertices[2], t1.Vertices[0], t2.Vertices[0]).OrientY() > 0)
+                        {
                             return true;
+                        }
                         else
+                        {
                             return false;
+                        }
                     }
                     else
+                    {
                         return false;
+                    }
                 }
             }
             else
@@ -589,16 +653,24 @@ namespace ITProjectShipCompartmentation
                 if (new Triangle(t2.Vertices[1], t2.Vertices[2], t1.Vertices[0]).OrientY() > 0)
                 {
                     if (new Triangle(t2.Vertices[2], t2.Vertices[0], t1.Vertices[0]).OrientY() > 0)
+                    {
                         return true;
+                    }
                     else
+                    {
                         return IntersectionEdgeY(t1, t2);
+                    }
                 }
                 else
                 {
                     if (new Triangle(t2.Vertices[2], t2.Vertices[0], t1.Vertices[0]).OrientY() > 0)
+                    {
                         return IntersectionEdgeY(t1, new Triangle(t2.Vertices[2], t2.Vertices[0], t2.Vertices[1]));
+                    }
                     else
+                    {
                         return IntersectionVertexY(t1, t2);
+                    }
                 }
             }
             else
@@ -606,12 +678,18 @@ namespace ITProjectShipCompartmentation
                 if (new Triangle(t2.Vertices[1], t2.Vertices[2], t1.Vertices[0]).OrientY() > 0)
                 {
                     if (new Triangle(t2.Vertices[2], t2.Vertices[0], t1.Vertices[0]).OrientY() > 0)
+                    {
                         return IntersectionEdgeY(t1, new Triangle(t2.Vertices[1], t2.Vertices[2], t2.Vertices[0]));
+                    }
                     else
+                    {
                         return IntersectionVertexY(t1, new Triangle(t2.Vertices[1], t2.Vertices[2], t2.Vertices[0]));
+                    }
                 }
                 else
+                {
                     return IntersectionVertexY(t1, new Triangle(t2.Vertices[2], t2.Vertices[0], t2.Vertices[1]));
+                }
             }
         }
 
@@ -632,15 +710,23 @@ namespace ITProjectShipCompartmentation
         {
             if (new Triangle(t1.Vertices[0], t1.Vertices[1], t1.Vertices[2]).OrientY() < 0)
                 if (new Triangle(t2.Vertices[0], t2.Vertices[1], t2.Vertices[2]).OrientY() < 0)
+                {
                     return IntersectionTriY(new Triangle(t1.Vertices[0], t1.Vertices[2], t1.Vertices[1]), new Triangle(t2.Vertices[0], t2.Vertices[2], t2.Vertices[1]));
+                }
                 else
+                {
                     return IntersectionTriY(new Triangle(t1.Vertices[0], t1.Vertices[2], t1.Vertices[1]), new Triangle(t2.Vertices[0], t2.Vertices[1], t2.Vertices[2]));
+                }
             else
             {
                 if (new Triangle(t2.Vertices[0], t2.Vertices[1], t2.Vertices[2]).OrientY() < 0)
+                {
                     return IntersectionTriY(new Triangle(t1.Vertices[0], t1.Vertices[1], t1.Vertices[2]), new Triangle(t2.Vertices[0], t2.Vertices[2], t2.Vertices[1]));
+                }
                 else
+                {
                     return IntersectionTriY(new Triangle(t1.Vertices[0], t1.Vertices[1], t1.Vertices[2]), new Triangle(t2.Vertices[0], t2.Vertices[1], t2.Vertices[2]));
+                }
             }
         }
         #endregion
@@ -1129,7 +1215,7 @@ public class Triangle
     {
         List<string> lines = new List<string>();
         int spacecount = 2;
-        string line = "";
+        string line = "";//replace "" with string.empty
         for (int i = 0; i < spacecount; i++)
         {
             line += " ";
@@ -1141,7 +1227,7 @@ public class Triangle
 
 
         spacecount = 4;
-        line = "";
+        line = "";//replace "" with string.empty
         for (int i = 0; i < spacecount; i++)
         {
             line += " ";
@@ -1152,7 +1238,7 @@ public class Triangle
         spacecount = 6;
         foreach (Coordinate objCoordinate in Vertices)
         {
-            line = "";
+            line = "";//replace "" with string.empty
             for (int i = 0; i < spacecount; i++)
             {
                 line += " ";
@@ -1163,7 +1249,7 @@ public class Triangle
         }
 
         spacecount = 4;
-        line = "";
+        line = "";//replace "" with string.empty
         for (int i = 0; i < spacecount; i++)
         {
             line += " ";
@@ -1173,7 +1259,7 @@ public class Triangle
 
 
         spacecount = 2;
-        line = "";
+        line = "";//replace "" with string.empty
         for (int i = 0; i < spacecount; i++)
         {
             line += " ";
@@ -1198,7 +1284,7 @@ public class Triangle
         /// </summary>
         /// <param name="abs">condition that returns true if the normal is absolute 1 be it -1 or 1 in the X coordinate</param>
         /// <returns>the other condition returns true for only +1 value</returns>
-        public bool IsX(bool abs)
+        public bool IsX(bool abs)//renamme abs with isAbs
     {
         if (abs)
         {
